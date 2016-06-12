@@ -358,10 +358,8 @@ namespace Sep.Git.Tfs.Core
                         {
                             fetchResult.IsProcessingRenameChangeset = true;
                             fetchResult.LastParentCommitBeforeRename = MaxCommitHash;
-                            return fetchResult;
+                            // NO RETURN for manage the use case: branch is maybe undo after a rename
                         }
-                        renameResult.IsProcessingRenameChangeset = false;
-                        renameResult.LastParentCommitBeforeRename = null;
                     }
                     if (parentCommitSha != null)
                         log.CommitParents.Add(parentCommitSha);
@@ -370,7 +368,7 @@ namespace Sep.Git.Tfs.Core
                         foreach (var parent in parentCommitsHashes)
                             log.CommitParents.Add(parent);
                     }
-                    var commitSha = ProcessChangeset(changeset, log);
+                    var commitSha = !changeset.IsRenameChangeset || isFirstCommitInRepository ? ProcessChangeset(changeset, log) : null;
                     fetchResult.LastFetchedChangesetId = changeset.Summary.ChangesetId;
                     // set commit sha for added git objects
                     foreach (var commit in objects)
