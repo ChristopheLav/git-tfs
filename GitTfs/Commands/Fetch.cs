@@ -35,8 +35,6 @@ namespace Sep.Git.Tfs.Commands
             BranchStrategy = BranchStrategy = BranchStrategy.Auto;
         }
 
-
-
         bool FetchAll { get; set; }
         bool FetchLabels { get; set; }
         bool FetchParents { get; set; }
@@ -55,6 +53,7 @@ namespace Sep.Git.Tfs.Commands
                 properties.BatchSize = batchSize;
             }
         }
+        public bool IgnoreFailMergeCommit { get; set; }
 
         int upToChangeSet { get; set; }
         public string UpToChangeSetOption
@@ -107,7 +106,9 @@ namespace Sep.Git.Tfs.Commands
                     { "c|changeset=", "The changeset to clone from (must be a number)",
                         v => InitialChangeset = Convert.ToInt32(v) },
                     { "t|up-to=", "up-to changeset # (optional, -1 for up to maximum, must be a number, not prefixed with C)", 
-                        v => UpToChangeSetOption = v }
+                        v => UpToChangeSetOption = v },
+                    { "ignore-fail-merge-commit", "Ignore fail merge commit during fetching if branch=all option is used",
+                        v => IgnoreFailMergeCommit = v != null }
                 }.Merge(remoteOptions.OptionSet);
             }
         }

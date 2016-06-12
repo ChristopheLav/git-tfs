@@ -118,7 +118,7 @@ namespace Sep.Git.Tfs.Commands
 
                 if (retVal == 0)
                 {
-                    fetch.Run(fetch.BranchStrategy == BranchStrategy.All);
+                    fetch.Run(fetch.BranchStrategy == BranchStrategy.All && !fetch.IgnoreFailMergeCommit);
                     globals.Repository.GarbageCollect();
                 }
 
