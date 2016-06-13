@@ -1,4 +1,18 @@
-﻿## Introduction
+﻿# ChristopheLav's Fork
+
+Fork of the [Git-Tfs](https://github.com/git-tfs/git-tfs) project.
+
+Used this fork to publish some improvements, stability and fixes for branching support features.
+
+All devs are made in the [stability-branching](https://github.com/ChristopheLav/git-tfs/tree/stability-branching) branch and based on the last __0.25.0__ official release.
+
+
+---
+
+
+# Official readme
+
+## Introduction
 
 [git-tfs](http://git-tfs.com/) is a two-way bridge between TFS (Team Foundation Server) and git, similar to git-svn.
 It fetches TFS commits into a git repository, and lets you push your updates back to TFS.
