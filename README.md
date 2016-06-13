@@ -5,7 +5,7 @@ Fork of the [Git-Tfs](https://github.com/git-tfs/git-tfs) project.
 Used this fork to publish some improvements, stability and fixes for branching support features.
 
 All devs are made in the [stability-branching](https://github.com/ChristopheLav/git-tfs/tree/stability-branching) branch and based on the last __0.25.0__ official release.
-
+The most recent version is __0.25.0.1000__. See the [change history](https://github.com/ChristopheLav/git-tfs/releases) for details.
 
 ---
 
